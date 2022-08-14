@@ -27,7 +27,6 @@ public interface BanDealInfoService extends IService<BanDealInfo> {
     /**
      * 通过 投资企业或担任高级职务情况 向禁止交易表中添加数据
      * @param infoList 来源与投资企业或担任高级职务情况表中的数据
-     * @param gbList  干部基本信息 干部的信息要以干部基本信息表中为准
      * @param gbOrgList  干部组织基本信息
      */
     public ResultMsgUtil<Map<String,Object>>  insertBanDealInfoOfInvestInfo(List<InvestInfo> infoList, List<GbOrgInfo> gbOrgList);
@@ -43,7 +42,6 @@ public interface BanDealInfoService extends IService<BanDealInfo> {
      * 通过 配偶、子女及其配偶开办有偿社会中介和法律服务机构或者从业的情况  向禁止交易表中添加数据
      * @param infoList 来源与配偶、子女及其配偶投资私募股权投资基金或者担任高级职务的情况的数据
      * @param gbOrgList  干部组织基本信息
-     * @param submitDto  提交信息
      */
     public ResultMsgUtil<Map<String,Object>>  insertBanDealInfoOfMechanismInfo(List<MechanismInfo> infoList, List<GbOrgInfo> gbOrgList);
 

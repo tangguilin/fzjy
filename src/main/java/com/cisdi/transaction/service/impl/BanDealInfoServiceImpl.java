@@ -186,7 +186,7 @@ public class BanDealInfoServiceImpl extends ServiceImpl<BanDealInfoMapper, BanDe
 
                     String company = gbOrgInfo.getUnit();
                     String department = gbOrgInfo.getDeparment();
-                    if (StrUtil.isNotEmpty(company)&&StrUtil.isNotEmpty(department) && !(company.contains("中国五矿集团有限公司")&&department.contains("专职董(监)事办公室"))) { //如果该干部在集团专职董监事,禁止交易采购单位名称手动录入
+                    if ((StrUtil.isEmpty(company)||StrUtil.isEmpty(department)) || !(company.contains("中国五矿集团有限公司")&&department.contains("专职董(监)事办公室"))) { //如果该干部在集团专职董监事,禁止交易采购单位名称手动录入
                         //根据干部禁业职务类型判断，
                         //当禁业职务类型为党组管理干部正职，则禁止交易采购单位为五矿集团及以下；
                         //当禁业职务类型为党组管理干部副职，则禁止交易采购单位为该干部所在单位及以下；
@@ -276,9 +276,9 @@ public class BanDealInfoServiceImpl extends ServiceImpl<BanDealInfoMapper, BanDe
 
                     String company = gbOrgInfo.getUnit();
                     String department = gbOrgInfo.getDeparment();
-                    if (StrUtil.isNotEmpty(company)&&StrUtil.isNotEmpty(department) && !(company.contains("中国五矿集团有限公司")&&department.contains("专职董(监)事办公室"))) { //如果该干部在集团专职董监事,禁止交易采购单位名称手动录入
+                    if ((StrUtil.isEmpty(company)||StrUtil.isEmpty(department)) || !(company.contains("中国五矿集团有限公司")&&department.contains("专职董(监)事办公室"))) { //如果该干部在集团专职董监事,禁止交易采购单位名称手动录入
                         String banPostType = bandealInfo.getBanPostType();
-                        String whether = SystemConstant.WHETHER_YES;
+                        String whether = sysDictBizService.getDictId(SystemConstant.WHETHER_YES,dictList);
                         String purchaseCode = Objects.isNull(gbOrgInfo) ? "" : gbOrgInfo.getUnitCode();//禁止交易采购单位代码
                         String purchaseName = Objects.isNull(gbOrgInfo) ? "" : gbOrgInfo.getUnit();
                         ;//禁止交易采购单位名称
@@ -286,7 +286,7 @@ public class BanDealInfoServiceImpl extends ServiceImpl<BanDealInfoMapper, BanDe
                             purchaseCode = "60000001";
                             purchaseName = "中国五矿集团有限公司";
                         } else if ("总部处长".equals(sysDictBizService.getDictValue(banPostType,dictList))) {
-                            whether = SystemConstant.WHETHER_NO;//是否继承关系
+                            whether = sysDictBizService.getDictId(SystemConstant.WHETHER_NO,dictList);//是否继承关系
                             purchaseCode = Objects.isNull(gbOrgInfo) ? "" : gbOrgInfo.getDeparmentCode();//禁止交易采购 部门代码
                             purchaseName = Objects.isNull(gbOrgInfo) ? "" : gbOrgInfo.getDeparment();;//禁止交易采购部门名称
 
@@ -308,12 +308,12 @@ public class BanDealInfoServiceImpl extends ServiceImpl<BanDealInfoMapper, BanDe
                 noSubmitId.add(info.getId());
             }
         }
-        //社会企业信用代码验证
-        List<BanDealInfo> newBanDealInfoList = this.validBatchCompanyCode(banDealInfoList);
+        //社会企业信用代码验证 13-3表不验证
+        //List<BanDealInfo> newBanDealInfoList = this.validBatchCompanyCode(banDealInfoList);
         //在禁止企业交易信息表中添加数据
-        boolean b = this.saveBatch(newBanDealInfoList);
+        boolean b = this.saveBatch(banDealInfoList);
         //新增操作记录
-        boolean deal = banDealInfoRecordService.insertBanDealInfoRecord(newBanDealInfoList, SystemConstant.OPERATION_TYPE_ADD); //新增
+        boolean deal = banDealInfoRecordService.insertBanDealInfoRecord(banDealInfoList, SystemConstant.OPERATION_TYPE_ADD); //新增
 
         Map<String,Object> map = new HashMap();
         map.put("noSubmitIds",noSubmitId); //记录不能提交的数据
@@ -361,7 +361,7 @@ public class BanDealInfoServiceImpl extends ServiceImpl<BanDealInfoMapper, BanDe
 
                     String company = gbOrgInfo.getUnit();
                     String department = gbOrgInfo.getDeparment();
-                    if (StrUtil.isNotEmpty(company)&&StrUtil.isNotEmpty(department) && !(company.contains("中国五矿集团有限公司")&&department.contains("专职董(监)事办公室"))) { //如果该干部在集团专职董监事,禁止交易采购单位名称手动录入
+                    if ((StrUtil.isEmpty(company)||StrUtil.isEmpty(department)) || !(company.contains("中国五矿集团有限公司")&&department.contains("专职董(监)事办公室"))) { //如果该干部在集团专职董监事,禁止交易采购单位名称手动录入
                         String banPostType = bandealInfo.getBanPostType();
                         String whether = SystemConstant.WHETHER_YES;
                         String purchaseCode = Objects.isNull(gbOrgInfo) ? "" : gbOrgInfo.getUnitCode();//禁止交易采购单位代码

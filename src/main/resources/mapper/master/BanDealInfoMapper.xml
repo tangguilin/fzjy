@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cisdi.transaction.mapper.master.BanDealInfoMapper">
+    <resultMap id="Base" type="com.cisdi.transaction.domain.model.BanDealInfo">
+        <id column="id" property="id"/>
+        <result column="tenant_id" property="tenantId" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="creator_id" property="creatorId" />
+        <result column="updater_id" property="updaterId" />
+        <result column="seq" property="seq" />
+        <result column="cardId" property="card_id" />
+        <result column="name" property="name" />
+        <result column="company" property="company" />
+        <result column="post" property="post" />
+        <result column="postType" property="post_type" />
+        <result column="familyName" property="family_name" />
+        <result column="relation" property="relation" />
+        <result column="engageType" property="engage_type" />
+        <result column="engageInfo" property="engage_info" />
+        <result column="operatScope" property="operat_scope" />
+        <result column="checkTips" property="check_tips" />
+        <result column="supplier" property="supplier" />
+        <result column="code" property="code" />
+        <result column="banPurchaseCode" property="ban_purchase_code" />
+        <result column="banPurchaseName" property="ban_purchase_name" />
+        <result column="isExtends" property="is_extends" />
+        <result column="manageCompany" property="manage_company" />
+        <result column="manageCompanyCode" property="manage_company_code" />
+        <result column="creator" property="creator" />
+        <result column="creatorAccount" property="creator_account" />
+        <result column="state" property="state" />
+        <result column="creatorId" property="creator_id" />
+        <result column="updaterId" property="updater_id" />
+        <result column="banPostType" property="ban_post_type" />
+
+
+    </resultMap>
+
+    <sql id="basic">
+        id,create_time,tenant_id,update_time,seq,card_id,name,company,post,post_type,family_name,relation,engage_type,engage_info,operat_scope,check_tips,
+supplier,code,ban_purchase_code,ban_purchase_name,is_extends,manage_company,manage_company_code,creator,creator_account,state,creator_id,updater_id,ban_post_type
+
+    </sql>
+
+    <update id="updateState">
+        update 69654103_ban_deal_info set state = #{state} where in(
+            <foreach collection="ids" item="id" separator=",">
+                #{id}
+            </foreach>
+            )
+    </update>
+
+</mapper>

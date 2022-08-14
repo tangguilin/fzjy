@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cisdi.transaction.mapper.master.GbBasicInfoMapper">
+<!--    <resultMap id="BaseMap" type="com.cisdi.transaction.domain.model.GbBasicInfo">-->
+<!--        <id column="id" property="id"/>-->
+<!--        <result column="tenant_id" property="tenantId" />-->
+<!--        <result column="create_time" property="createTime" />-->
+<!--        <result column="update_time" property="updateTime" />-->
+<!--        <result column="creator_id" property="creatorId" />-->
+<!--        <result column="updater_id" property="updaterId" />-->
+<!--        <result column="name" property="name" />-->
+<!--        <result column="card_id" property="cardId" />-->
+<!--        <result column="department" property="department" />-->
+<!--        <result column="post" property="post" />-->
+<!--        <result column="post_type" property="postType" />-->
+<!--    </resultMap>-->
+
+<!--    <sql id="basic">-->
+<!--        id,tenant_id,create_time,update_time,creator_id,updater_id,name,card_id,department,post,post_type-->
+<!--    </sql>-->
+
+<!--    <insert id="insert" parameterType="com.cisdi.transaction.domain.model.GbBasicInfo">-->
+<!--        insert into 69654103_gb_basic_info-->
+<!--        <trim prefix="(" suffix=")"  suffixOverrides=",">-->
+<!--            <if test="id !=null">-->
+<!--                id,-->
+<!--            </if>-->
+<!--            <if test="tenantId !=null">-->
+<!--                tenant_id,-->
+<!--            </if>-->
+<!--            <if test="createTime !=null">-->
+<!--                create_time,-->
+<!--            </if>-->
+<!--            <if test="updateTime !=null">-->
+<!--                update_time,-->
+<!--            </if>-->
+<!--            <if test="creatorId !=null">-->
+<!--                creator_id,-->
+<!--            </if>-->
+<!--            <if test="updaterId !=null">-->
+<!--                updater_id,-->
+<!--            </if>-->
+<!--            <if test="name !=null">-->
+<!--                name,-->
+<!--            </if>-->
+<!--            <if test="cardId !=null">-->
+<!--                card_id,-->
+<!--            </if>-->
+<!--            <if test="department !=null">-->
+<!--                department,-->
+<!--            </if>-->
+<!--            <if test="post !=null">-->
+<!--                post,-->
+<!--            </if> <if test="postType !=null">-->
+<!--              post_type,-->
+<!--        </if>-->
+<!--        </trim>-->
+<!--        <trim prefix="value (" suffix=")"  suffixOverrides=",">-->
+<!--            <if test="id !=null">-->
+<!--                #{id},-->
+<!--            </if>-->
+<!--            <if test="tenantId !=null">-->
+<!--                #{tenantId},-->
+<!--            </if>-->
+<!--            <if test="createTime !=null">-->
+<!--                #{createTime},-->
+<!--            </if>-->
+<!--            <if test="updateTime !=null">-->
+<!--                #{updateTime},-->
+<!--            </if>-->
+<!--            <if test="creatorId !=null">-->
+<!--                #{creatorId},-->
+<!--            </if>-->
+<!--            <if test="updaterId !=null">-->
+<!--                #{updaterId},-->
+<!--            </if>-->
+<!--            <if test="name !=null">-->
+<!--                #{name},-->
+<!--            </if>-->
+<!--            <if test="cardId !=null">-->
+<!--                #{cardId},-->
+<!--            </if>-->
+<!--            <if test="department !=null">-->
+<!--                #{department},-->
+<!--            </if>-->
+<!--            <if test="post !=null">-->
+<!--                #{post},-->
+<!--            </if> <if test="postType !=null">-->
+<!--                #{postType},-->
+<!--        </if>-->
+<!--        </trim>-->
+<!--    </insert>-->
+
+<!--    <insert id="insertBatch" parameterType="java.util.List">-->
+<!--        insert into  69654103_gb_basic_info(id,tenant_id,create_time,update_time,creator_id,updater_id-->
+<!--        ,name,card_id,department,post,post_type) values-->
+<!--        <foreach collection="gbs" item="gb" open="(" close=")" separator=",">-->
+<!--            #{gb.id}, #{gb.tenantId},#{gb.createTime},#{gb.updateTime},#{gb.creatorId},-->
+<!--            #{gb.updaterId},#{gb.name},#{gb.cardId},#{gb.department},#{gb.post},-->
+<!--            #{gb.postType}-->
+<!--        </foreach>-->
+<!--    </insert>-->
+
+<!--    <select id="selectByName" resultMap="BaseMap" parameterType="java.lang.String">-->
+<!--        select <include refid="basic"/>   from  69654103_gb_basic_info where name = #{selectByName}-->
+<!--    </select>-->
+
+</mapper>

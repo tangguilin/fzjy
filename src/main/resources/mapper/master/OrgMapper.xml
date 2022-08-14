@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cisdi.transaction.mapper.master.OrgMapper">
+<!--    <resultMap id="BaseMap" type="com.cisdi.transaction.domain.model.Org">-->
+<!--        <id column="id" property="id"/>-->
+<!--        <result column="tenant_id" property="tenantId" />-->
+<!--        <result column="create_time" property="createTime" />-->
+<!--        <result column="update_time" property="updateTime" />-->
+<!--        <result column="creator_id" property="creatorId" />-->
+<!--        <result column="updater_id" property="updaterId" />-->
+<!--        <result column="asglevel" property="asglevel" />-->
+<!--        <result column="asgpathcode" property="asgpathcode" />-->
+<!--        <result column="asgpathname" property="asgpathname" />-->
+<!--        <result column="asgpathnamecode" property="asgpathnamecode" />-->
+<!--        <result column="asgorgancode" property="asgorgancode" />-->
+<!--        <result column="asgorganname" property="asgorganname" />-->
+<!--        <result column="asgleadfg" property="asgleadfg" />-->
+<!--        <result column="asglead" property="asglead" />-->
+<!--        <result column="asgtype" property="asgtype" />-->
+<!--        <result column="asgpathnameall" property="asgpathnameall" />-->
+<!--        <result column="asgorgannameshort" property="asgorgannameshort" />-->
+<!--        <result column="asgqyfzr" property="asgqyfzr" />-->
+<!--        <result column="asgzzzlxbm" property="asgzzzlxbm" />-->
+<!--        <result column="asgjzyzt" property="asgjzyzt" />-->
+<!--    </resultMap>-->
+<!--    <delete id="removeAll">-->
+<!--            delete from 69654103_org-->
+<!--    </delete>-->
+
+<!--    <insert id="insertBatch" parameterType="java.util.List">-->
+<!--        insert into  69654103_org(id,tenant_id,create_time,update_time,creator_id,updater_id,asglevel,asgpathcode,-->
+<!--            asgpathname,asgpathnamecode,asgorgancode,asgorganname,asgleadfg,asglead,asgtype,asgpathnameall,-->
+<!--            asgorgannameshort,asgqyfzr,asgzzzlxbm,asgjzyzt) values-->
+<!--             <foreach collection="orgs" item="org" open="(" close=")" separator=",">-->
+<!--                 #{org.id}, #{org.tenant_id}, #{org.create_time}, #{org.update_time}, #{org.creator_id}, #{org.updater_id}, #{org.asglevel}, #{org.asgpathcode},-->
+<!--                 #{org.asgpathname}, #{org.asgpathnamecode}, #{org.asgorgancode}, #{org.asgorganname}, #{org.asgleadfg}, #{org.asglead}, #{org.asgtype}, #{org.asgpathnameall},-->
+<!--                 #{org.asgorgannameshort}, #{org.asgqyfzr}, #{org.asgzzzlxbm}, #{org.asgjzyzt}-->
+<!--             </foreach>-->
+<!--    </insert>-->
+
+<!--    <select id="selectById" parameterType="java.lang.String" resultType="com.cisdi.transaction.domain.model.Org">-->
+<!--        select * from 69654103_org where id=#{id}-->
+<!--    </select>-->
+</mapper>
